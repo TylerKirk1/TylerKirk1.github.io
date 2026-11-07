@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tyler Kirk</title>
+<meta name="description" content="Tyler Kirk, software developer. Projects and contact.">
+<style>
+  :root { --bg:#fffff8; --fg:#222; --muted:#888; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141414; --fg:#d4d4d4; --muted:#6a6a6a; } }
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--fg); font:14px/1.6 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+         padding:8vh 16px; }
+  main { max-width:72ch; margin:0 auto; }
+  a { color:inherit; }
+  .muted { color:var(--muted); }
+  p { margin-bottom:1.6em; }
+  h2 { font:inherit; margin:2.4em 0 .8em; }
+  .links a + a { margin-left:2ch; }
+
+  /* each project is one line, and hovering it selects the line like a text cursor would */
+  .row { display:grid; grid-template-columns:6ch 21ch 1fr; text-decoration:none; padding:0 1ch; margin:0 -1ch; }
+  .row:hover, .row:focus-visible { background:var(--fg); color:var(--bg); outline:none; }
+  .row:hover .muted, .row:focus-visible .muted { color:inherit; }
+
+  @media (max-width:600px) {
+    .row { grid-template-columns:6ch 1fr; padding-bottom:.8em; }
+    .row .d { grid-column:2; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <p>TYLER KIRK<br><span class="muted">software developer</span></p>
+  <!-- ✏️ Rewrite this in your own words -->
+  <p>I build things I want to use myself: terminal toys, browser tweaks, and lately small machine-learning models that run on ordinary hardware.</p>
+  <p class="links"><a href="https://github.com/TylerKirk1">github</a><a href="mailto:you@example.com">email</a></p>
+
+  <h2>PROJECTS</h2>
+  <div id="list"></div>
+
+  <h2>NOW</h2>
+  <p class="muted">Working on MiniVLM, trying to get basic OCR and object localization out of a model small enough for a consumer GPU.</p>
+</main>
+
+<script>
+// Your projects. Newest first. Add, remove or reorder lines here.
+const projects = [
+  { name:"minivlm", repo:"MiniVLM", year:2026, desc:"A compact vision-language model for consumer GPUs. Basic OCR and object localization." },
+  { name:"glass-terminal", repo:"Glass-Terminal", year:2026, desc:"A lightweight liquid-glass effect for the Ptyxis terminal." },
+  { name:"pdfviewer", repo:"pdfViewer", year:2026, desc:"A PDF viewer I wrote because I was tired of the one I had." },
+  { name:"terminal-battleship", repo:"terminal-battleship", year:2026, desc:"Battleship in the terminal, played against someone over the network." },
+  { name:"chromethemes", repo:"ChromeThemes", year:2025, desc:"A Chrome extension that lets you pick a colour theme for any page." },
+  { name:"tylertexto", repo:"tylertexto", year:2025, desc:"A word-guessing game where clues come from how close in meaning your guess is." },
+];
+document.getElementById('list').innerHTML = projects.map(p =>
+  `<a class="row" href="https://github.com/TylerKirk1/${p.repo}"><span class="muted">${p.year}</span><span>${p.name}</span><span class="d muted">${p.desc}</span></a>`).join('');
+</script>
+</body>
+</html>
