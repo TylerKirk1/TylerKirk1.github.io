@@ -54,7 +54,7 @@ const projects = [
   { name:"tylertexto", repo:"tylertexto", year:2025, desc:"A word-guessing game where clues come from how close in meaning your guess is." },
 ];
 document.getElementById('list').innerHTML = projects.map(p =>
-  `<a class="row" href="https://github.com/TylerKirk1/${p.repo}"><span class="muted">${p.year}</span><span>${p.name}</span><span class="d muted">${p.desc}</span></a>`).join('');
+  `<a class="row" href="${p.url || 'https://github.com/TylerKirk1/' + p.repo}"><span class="muted">${p.year}</span><span>${p.name}</span><span class="d muted">${p.desc}</span></a>`).join('');
 </script>
 </body>
 </html>
